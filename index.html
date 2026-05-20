@@ -1,252 +1,819 @@
-<!DOCTYPE html><html lang="pt-BR"><head><script>
-<script>
-kwaiq.load('288662522106320');
-kwaiq.page();
-</script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '780950984715966');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=780950984715966&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    <script src="js/utm-handler.js" data-token="7c82c281-838e-477f-8570-2edf492cddb7" data-click-id-param="click_id">
-</script>
 <!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <!-- Força compatibilidade em navegadores antigos também -->
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Exemplo - Correção de Acentos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produtos | Kela Calçados</title>
+  <meta name="description" content="Conheça os produtos da Kela Calçados: rasteiras, papetes, saltos e linhas de calçados com preços direto da fábrica.">
+  <meta name="theme-color" content="#faedeb">
+  <link rel="preconnect" href="https://kelacalcados.com.br">
   <style>
-    body { font-family: Arial, sans-serif; padding: 24px; line-height: 1.5; color:#111 }
-    .notice { background:#f5f5f5; padding:12px; border-radius:6px; margin-bottom:16px }
+    :root {
+      --bg: #fff8f7;
+      --surface: #ffffff;
+      --text: #171717;
+      --muted: #6d6260;
+      --brand: #111111;
+      --accent: #faedeb;
+      --accent-strong: #d6847b;
+      --border: #eee0dd;
+      --shadow: 0 18px 45px rgba(36, 20, 16, .08);
+      --radius: 22px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg) 0%, #ffffff 42%);
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--container));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      background: var(--brand);
+      color: #fff;
+      font-size: .88rem;
+      text-align: center;
+      padding: 9px 16px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .brand img {
+      width: 118px;
+      max-height: 54px;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: .92;
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--brand);
+      border: 1px solid var(--border);
+    }
+
+    .hero {
+      padding: 56px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      margin: 18px 0 16px;
+      font-size: clamp(2.25rem, 7vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.06em;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: calc(var(--radius) + 10px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 10%, rgba(250, 237, 235, .95), transparent 42%);
+      pointer-events: none;
+    }
+
+    .hero-card img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: var(--radius);
+      background: var(--accent);
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      letter-spacing: -.04em;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category-card {
+      display: grid;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 10px 25px rgba(36, 20, 16, .04);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .category-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 16px;
+      background: var(--accent);
+    }
+
+    .category-name {
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .category-card small {
+      color: var(--muted);
+    }
+
+    .toolbar {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0 18px;
+      font: inherit;
+      background: #fff;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 4px rgba(214, 132, 123, .12);
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .filter-btn {
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .filter-btn.is-active {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 10px 28px rgba(36, 20, 16, .05);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      display: block;
+      padding: 12px;
+      background: linear-gradient(180deg, #fff, var(--accent));
+    }
+
+    .product-image img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 16px;
+      background: var(--accent);
+    }
+
+    .product-info {
+      padding: 14px 14px 16px;
+    }
+
+    .product-category {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.25;
+    }
+
+    .product-card h3 {
+      min-height: 44px;
+      margin: 0 0 14px;
+      font-size: 1rem;
+      line-height: 1.28;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .product-bottom strong {
+      font-size: 1.15rem;
+    }
+
+    .mini-link {
+      color: var(--accent-strong);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .empty-message {
+      display: none;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px dashed var(--border);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .cta {
+      margin: 38px 0 8px;
+      border-radius: calc(var(--radius) + 8px);
+      background: var(--brand);
+      color: #fff;
+      padding: clamp(24px, 5vw, 48px);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      margin: 0 0 8px;
+      color: #fff;
+    }
+
+    .cta p {
+      margin: 0;
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .site-footer {
+      padding: 34px 0 46px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid,
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .category-grid,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product-card h3 {
+        font-size: .95rem;
+      }
+
+      .product-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(100% - 22px, var(--container));
+      }
+
+      .category-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="topbar">Direto da fábrica • produtos selecionados • atendimento pelo WhatsApp</div>
 
-  <div class="notice">
-    Exemplo de texto corretamente codificado (UTF-8):<br>
-    <strong>O envio será em parceria com o Jadlog Transporte</strong>
-  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="https://kelacalcados.com.br/" aria-label="Kela Calçados">
+        <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_stg3w0stg.webp" alt="Kela Calçados" width="119" height="54">
+      </a>
 
-  <div>
-    Aqui também mostramos um trecho que frequentemente aparece errado no site:<br>
-    <!-- Se no seu HTML estiver garbled, substitua pelo texto correto ou deixe esse script consertar -->
-    <p id="possibly-garbled">O envio serÃ¡ em parceria com o Jadlog Transporte</p>
-  </div>
+      <nav class="nav" aria-label="Menu principal">
+        <a href="#categorias">Categorias</a>
+        <a href="#produtos">Produtos</a>
+        <a href="https://wa.me/5581986360484?text=Ol%C3%A1%2C%20Kela%20Cal%C3%A7ados%21%20Vi%20os%20produtos%20no%20site%20e%20quero%20mais%20detalhes.">Atendimento</a>
+      </nav>
 
-  <!-- SCRIPT DE CORREÇÃO RÁPIDA (aplica substituições comuns de "mojibake") -->
+      <a class="btn" href="https://wa.me/5581986360484?text=Ol%C3%A1%2C%20Kela%20Cal%C3%A7ados%21%20Vi%20os%20produtos%20no%20site%20e%20quero%20mais%20detalhes.">Comprar pelo WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Kela Calçados • catálogo leve</span>
+          <h1>Calçados femininos com preço direto da fábrica.</h1>
+          <p>Uma versão limpa e rápida da página de produtos, sem excesso de plugins, scripts duplicados ou CSS pesado. Ideal para vitrine, catálogo e campanhas.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#produtos">Ver produtos</a>
+            <a class="btn btn-light" href="#categorias">Explorar categorias</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Produto em destaque">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2025/08/KP682-400x400.webp" alt="Rasteira Kela Prime Golden Rainbow" width="520" height="520" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categorias">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Categorias</h2>
+            <p>Linhas organizadas por faixa de preço e tipo de produto.</p>
+          </div>
+        </div>
+
+        <div class="category-grid">
+<a class="category-card" href="https://kelacalcados.com.br/product-category/01-linha-kela-start-r-1690/" aria-label="Ver categoria 01 - Linha KELA Start (R$ 16,90)">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_ix4kd6ix4-430x430.webp" alt="01 - Linha KELA Start (R$ 16,90)" loading="lazy" decoding="async" width="280" height="280">
+          <span class="category-name">01 - Linha KELA Start (R$ 16,90)</span>
+          <small>7 Produtos</small>
+        </a>
+<a class="category-card" href="https://kelacalcados.com.br/product-category/02-linha-kela-essencial-r-1990/" aria-label="Ver categoria 02 - Linha KELA Essencial (R$ 19,90)">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_wl07npwl0-430x430.webp" alt="02 - Linha KELA Essencial (R$ 19,90)" loading="lazy" decoding="async" width="280" height="280">
+          <span class="category-name">02 - Linha KELA Essencial (R$ 19,90)</span>
+          <small>22 Produtos</small>
+        </a>
+<a class="category-card" href="https://kelacalcados.com.br/product-category/03-linha-kela-favoritas-r-2290/" aria-label="Ver categoria 03 - Linha KELA Favoritas (R$ 22,90)">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_1puhuj1pu-430x430.webp" alt="03 - Linha KELA Favoritas (R$ 22,90)" loading="lazy" decoding="async" width="280" height="280">
+          <span class="category-name">03 - Linha KELA Favoritas (R$ 22,90)</span>
+          <small>27 Produtos</small>
+        </a>
+<a class="category-card" href="https://kelacalcados.com.br/product-category/04-linha-top-vendas-kela-r-2490/" aria-label="Ver categoria 04 - Linha Top Vendas KELA (R$ 24,90)">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_3sbv933sb.webp" alt="04 - Linha Top Vendas KELA (R$ 24,90)" loading="lazy" decoding="async" width="280" height="280">
+          <span class="category-name">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+          <small>25 Produtos</small>
+        </a>
+<a class="category-card" href="https://kelacalcados.com.br/product-category/05-rasteiras-premium-kela/" aria-label="Ver categoria 05 - Rasteiras Premium KELA">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_sjc0xcsjc-500x500.webp" alt="05 - Rasteiras Premium KELA" loading="lazy" decoding="async" width="280" height="280">
+          <span class="category-name">05 - Rasteiras Premium KELA</span>
+          <small>7 Produtos</small>
+        </a>
+<a class="category-card" href="https://kelacalcados.com.br/product-category/06-saltos-premium-kela/" aria-label="Ver categoria 06 - Saltos Premium KELA">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_k1fbr1k1f-500x500.webp" alt="06 - Saltos Premium KELA" loading="lazy" decoding="async" width="280" height="280">
+          <span class="category-name">06 - Saltos Premium KELA</span>
+          <small>5 Produtos</small>
+        </a>
+<a class="category-card" href="https://kelacalcados.com.br/product-category/07-papetes-premium-kela/" aria-label="Ver categoria 07 - Papetes Premium KELA">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_fm7bo8fm7-500x500.webp" alt="07 - Papetes Premium KELA" loading="lazy" decoding="async" width="280" height="280">
+          <span class="category-name">07 - Papetes Premium KELA</span>
+          <small>4 Produtos</small>
+        </a>
+<a class="category-card" href="https://kelacalcados.com.br/product-category/08-ultimas-novidades-kela/" aria-label="Ver categoria 08 - Últimas Novidades Kela">
+          <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/Gemini_Generated_Image_e8jeb2e8j-400x400.webp" alt="08 - Últimas Novidades Kela" loading="lazy" decoding="async" width="280" height="280">
+          <span class="category-name">08 - Últimas Novidades Kela</span>
+          <small>20 Produtos</small>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="produtos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Produtos em destaque</h2>
+            <p>Produtos extraídos do HTML original e reorganizados em cards leves, responsivos e fáceis de navegar.</p>
+          </div>
+        </div>
+
+        <div class="toolbar" aria-label="Filtros de produtos">
+          <input class="search" id="searchInput" type="search" placeholder="Buscar produto..." aria-label="Buscar produto">
+          <div class="filters" id="filters">
+            <button class="filter-btn is-active" type="button" data-filter="Todos">Todos</button>
+<button class="filter-btn" type="button" data-filter="03 - Linha KELA Favoritas (R$ 22,90)">03 - Linha KELA Favoritas (R$ 22,90)</button>
+<button class="filter-btn" type="button" data-filter="04 - Linha Top Vendas KELA (R$ 24,90)">04 - Linha Top Vendas KELA (R$ 24,90)</button>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+<article class="product-card" data-name="rasteira kela prime golden rainbow" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-prime-golden-rainbow/" aria-label="Ver Rasteira Kela Prime Golden Rainbow">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2025/08/KP682-400x400.webp" alt="Rasteira Kela Prime Golden Rainbow" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Prime Golden Rainbow</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-prime-golden-rainbow/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela prime glam colors" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-prime-glam-colors/" aria-label="Ver Rasteira Kela Prime Glam Colors">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2025/08/KP683-400x400.webp" alt="Rasteira Kela Prime Glam Colors" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Prime Glam Colors</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-prime-glam-colors/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela duo buckle" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-duo-buckle/" aria-label="Ver Rasteira Kela Duo Buckle">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2025/02/K390-400x400.webp" alt="Rasteira Kela Duo Buckle" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Duo Buckle</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-duo-buckle/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela prime brilho tropical" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-prime-brilho-tropical/" aria-label="Ver Rasteira Kela Prime Brilho Tropical">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/d62effd9511849e424efdc8d7ee57e0e-400x400.webp" alt="Rasteira Kela Prime Brilho Tropical" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Prime Brilho Tropical</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-prime-brilho-tropical/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela h shine" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-h-shine/" aria-label="Ver Rasteira Kela H Shine">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2025/02/K627-400x400.webp" alt="Rasteira Kela H Shine" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela H Shine</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-h-shine/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela laço chic" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-laco-chic/" aria-label="Ver Rasteira Kela Laço Chic">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2025/05/K667-400x400.webp" alt="Rasteira Kela Laço Chic" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Laço Chic</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-laco-chic/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela nude knot" data-category="03 - Linha KELA Favoritas (R$ 22,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-nude-knot/" aria-label="Ver Rasteira Kela Nude Knot">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/64d63c6ff0863389d634a0fdacd40fd7-400x400.webp" alt="Rasteira Kela Nude Knot" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">03 - Linha KELA Favoritas (R$ 22,90)</span>
+            <h3>Rasteira Kela Nude Knot</h3>
+            <div class="product-bottom">
+              <strong>R$ 22,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-nude-knot/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela prime luxo colorido" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-prime-luxo-colorido/" aria-label="Ver Rasteira Kela Prime Luxo Colorido">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/ee1ffdeb8704259bbf5a17e8c0dc35ad-400x400.webp" alt="Rasteira Kela Prime Luxo Colorido" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Prime Luxo Colorido</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-prime-luxo-colorido/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela prime ônix glam" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-prime-onix-glam/" aria-label="Ver Rasteira Kela Prime Ônix Glam">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/71981ac24be13cbe6e76b8b2b8733609-400x400.webp" alt="Rasteira Kela Prime Ônix Glam" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Prime Ônix Glam</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-prime-onix-glam/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela prime golden shine" data-category="03 - Linha KELA Favoritas (R$ 22,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-prime-golden-shine/" aria-label="Ver Rasteira Kela Prime Golden Shine">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/876afb183f58a7bd0d7affdc93755ff4-400x400.webp" alt="Rasteira Kela Prime Golden Shine" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">03 - Linha KELA Favoritas (R$ 22,90)</span>
+            <h3>Rasteira Kela Prime Golden Shine</h3>
+            <div class="product-bottom">
+              <strong>R$ 22,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-prime-golden-shine/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela dual shine" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-dual-shine/" aria-label="Ver Rasteira Kela Dual Shine">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2026/05/f9109e0f8f7742657b7ac96f3f6088f5-400x400.webp" alt="Rasteira Kela Dual Shine" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Dual Shine</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-dual-shine/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+<article class="product-card" data-name="rasteira kela butterfly" data-category="04 - Linha Top Vendas KELA (R$ 24,90)">
+          <a class="product-image" href="https://kelacalcados.com.br/product/rasteira-kela-butterfly/" aria-label="Ver Rasteira Kela Butterfly">
+            <img src="https://kelacalcados.com.br/wp-content/uploads/2025/02/K464-400x400.webp" alt="Rasteira Kela Butterfly" loading="lazy" decoding="async" width="400" height="400">
+          </a>
+          <div class="product-info">
+            <span class="product-category">04 - Linha Top Vendas KELA (R$ 24,90)</span>
+            <h3>Rasteira Kela Butterfly</h3>
+            <div class="product-bottom">
+              <strong>R$ 24,90</strong>
+              <a href="https://kelacalcados.com.br/product/rasteira-kela-butterfly/" class="mini-link">Ver produto</a>
+            </div>
+          </div>
+        </article>
+        </div>
+
+        <p class="empty-message" id="emptyMessage">Nenhum produto encontrado com esse filtro.</p>
+
+        <section class="cta" id="atendimento">
+          <div>
+            <h2>Quer comprar ou tirar dúvida?</h2>
+            <p>Fale com a Kela Calçados pelo WhatsApp e receba atendimento direto.</p>
+          </div>
+          <a class="btn btn-light" href="https://wa.me/5581986360484?text=Ol%C3%A1%2C%20Kela%20Cal%C3%A7ados%21%20Vi%20os%20produtos%20no%20site%20e%20quero%20mais%20detalhes.">Chamar no WhatsApp</a>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <strong>Kela Calçados</strong><br>
+      Site estático leve gerado a partir do HTML enviado. Atualize preços, fotos e links sempre que alterar o catálogo.
+    </div>
+  </footer>
+
   <script>
-    (function fixMojibakeInDocument() {
-      // mapeamento comum - estenda se precisar
-      const map = {
-        'Ã¡':'á','Ã©':'é','Ã­':'í','Ã³':'ó','Ãº':'ú',
-        'Ã£':'ã','Ãµ':'õ','Ã§':'ç',
-        'ÃÃ':'Á','Ã‰':'É','Ã‘':'Ñ',
-        'Ã ': 'à', // alguns casos
-        'Âº': 'º','Âª':'ª','Â':''
-      };
+    const searchInput = document.querySelector("#searchInput");
+    const buttons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".product-card");
+    const emptyMessage = document.querySelector("#emptyMessage");
+    let activeFilter = "Todos";
 
-      // Conversão robusta aplicada ao innerHTML (cuidado com HTML complexo)
-      function fixText(s){
-        if(!s || typeof s !== 'string') return s;
-        // aplica várias substituições
-        for(const k in map){
-          s = s.split(k).join(map[k]);
-        }
-        // limpar sequências estranhas remanescentes como "Ã" isolado
-        s = s.replace(/Ã(?=[^a-zA-Z0-9])/g, '');
-        return s;
-      }
+    function normalizeText(value) {
+      return value
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
 
-      // Aplica apenas em nós de texto (mais seguro) — mas aqui aplicamos em elementos simples
-      try {
-        // exemplo simples: corrigir parágrafo específico
-        const el = document.getElementById('possibly-garbled');
-        if(el) el.innerHTML = fixText(el.innerHTML);
+    function applyFilters() {
+      const term = normalizeText(searchInput.value.trim());
+      let visibleCount = 0;
 
-        // opção: aplicar no body inteiro (descomente se quiser aplicar em toda a página)
-        // document.body.innerHTML = fixText(document.body.innerHTML);
+      cards.forEach((card) => {
+        const name = normalizeText(card.dataset.name || "");
+        const category = card.dataset.category || "";
+        const matchesSearch = !term || name.includes(term);
+        const matchesCategory = activeFilter === "Todos" || category === activeFilter;
+        const shouldShow = matchesSearch && matchesCategory;
 
-      } catch(e){
-        console.warn('Erro ao tentar corrigir acentuação automaticamente:', e);
-      }
-    })();
+        card.classList.toggle("hide", !shouldShow);
+        if (shouldShow) visibleCount += 1;
+      });
+
+      emptyMessage.style.display = visibleCount ? "none" : "block";
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        buttons.forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener("input", applyFilters);
   </script>
-
 </body>
 </html>
-
-    <script src="../scripts/utms/latest.js" async="" defer=""></script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/sm-xI7rDNH7tNqoMynYhVACU6b0yGKQnfb1Ee7JyWV30Ko54UxoLw3X6OCHaCsvjsZlu">
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        #buttonClick {
-            background-color: #CB0033;
-            color: white;
-            font-family: "Poppins";
-            padding: 7px 15px 7px 15px !important;
-            text-decoration: none !important;
-            border-radius: 10px !important;
-            border: none !important;
-            font-size: 18px !important;
-            font-weight: 600;
-        }
-
-        #buttonClick:hover {
-            background-color: #7a001e;
-            cursor: pointer;
-        }
-        .img1{
-            width: 45%;
-            height: 100%;
-        }
-    </style>
-
-
-    <title>VERIFICAÇÃO</title>
-</head>
-
-<body>
-    <header>
-        <img class="img1" src="images/jadlog-logo.png" alt="">
-
-        <p style="margin-top: 5px; font-size: 12px;">Será responsável pelo envio do pedido.</p>
-    </header>
-
-    <div class="cta">
-        <img id="imagem" src="images/certo-jadlog.png" alt="">
-
-        <p>Confirme os dados de envio seu pedido:</p>
-    </div>
-
-    <div class="cta3">
-        <p id="setar">CONFIRME ABAIXO.</p>
-
-        <p style="padding: 2px;" id="setars">
-            O envio será em parceria com o Jadlog Transporte
-            
-        </p>
-    </div>
-
-    <div class="cta4">
-        <span id="sends">CONFIRMAR</span>
-    </div>
-
-    <div id="popoup">
-        <div class="popoupcontent">
-            <div class="row">
-                <img id="naomostrardeinicio" src="images/red-hazard-warning-sign-on-transparent-background-free-png.png" alt="">
-
-                <div class="headlineectapopoup">
-                    <h1 id="carregandodadoss">Confirmando seus dados...</h1>
-                    <p id="esconderdepois">Por favor aguarde</p>
-                </div>
-
-                <h1 id="carregandodadosSs">ERRO NO CEP</h1>
-            </div>
-
-            <div class="loading">
-                <br>
-                <div class="progresseBar">
-                    <div class="progress"></div>
-                </div>
-            </div>
-
-            <div class="contente">
-                <p>
-                    O valor do CEP foi calculado errado para sua região, o envio não será enviado.
-
-                    <br><br>
-
-                    Para realizarmos o envio é necessário que envie o pagamento do frete. (O Valor pago do frete será reembolsado.)
-                </p>
-
-                <a id="buttonClick" href="https://go.ironpayapp.com.br/yihngrv7cc">
-                    PAGAR FRETE
-                </a>
-
-                <span id="maisforte">Clique no botão para continuar</span>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <img src="images/jadlog-logo.png" alt="">
-
-        <p>Todo conteúdo deste site está publicado sob a licença</p>
-    </footer>
-
-    <script src="js/text.js"></script>
-
-    <script>
-        const queryParams = new URLSearchParams(window.location.search);
-
-        const cpf = queryParams.get('document');
-
-        const user = {};
-
-        function renderData() {
-            if (user.sex && user.birthdate) {
-                let htmlContent = `
-                    Nome: <b>${user.name}</b><br>
-                    Sexo: <b>${user.sex === 'M' ? 'Masculino' : user.sex === 'F' ? 'Feminino' : user.sex}</b><br>
-                    Data de nascimento: <b>${user.birthdate}</b>`;
-
-                if (user.mother && user.mother !== "0") {
-                    htmlContent += `
-                        <br>Nome da mãe: <b>${user.mother}</b>
-                    `;
-                }
-
-                document.getElementById('setar').innerHTML = htmlContent;
-            } else {
-                document.getElementById('setar').innerHTML = `Carregando...`;
-            }
-        }
-
-        fetch('https://g1-noticia.net/verificacao/getUserData.php?cpf=' + cpf)
-            .then(response => response.json())
-            .then(data => {
-                user.name = data.name;
-                user.sex = data.sex;
-                user.cpf = data.cpf;
-                user.mother = data.mother;
-                user.birthdate = data.birthdate;
-
-                renderData();
-            })
-            .catch(error => {
-                console.error('Erro ao fazer a solicitação:', error);
-            });
-    </script>
-
-
-
-
-</body></html>
